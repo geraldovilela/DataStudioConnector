@@ -39,7 +39,7 @@ function getData(request){
 
 try{
   console.log('Fetch Data Start');
-  var apiResponse = fetchDataFromApi(request, requestedFields);
+  var apiResponse = fetchDataFromApi(request);
   var data = formatData(apiResponse, requestedFields);
 }
 catch(e){
@@ -68,18 +68,18 @@ function validateConfig(configParams) {
    return configParams;
 }
 
-function fetchDataFromApi(request, requestedFields){
-  var url = 'https://begrowth.api-us1.com/api/3/campaigns'
+function fetchDataFromApi(request){
+  var url = '*******************************'
   var options = {
     headers:{
-      'Api-token' : '73997f6a29f2f1ecf865c00b93d528f886cb9242ecf0f3f5c4f4e6791dede0cb7cd562c5'
+      'Api-token' : '*****************'
     }
   }
   var response = JSON.parse(UrlFetchApp.fetch(url, options));
   
-function formatData(response, requestedFields){
+//function formatData(response, requestedFields){
   console.log(typeof(response));
-  var item = Utilities.parseCsv(response, ';');
+   var item = response.items.shift();
   var row = requestedFields.asArray().map(function(field){
     switch (field.getId()){
       case 'analytics_campaign_name':
