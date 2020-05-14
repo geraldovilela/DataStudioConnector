@@ -77,7 +77,7 @@ function fetchDataFromApi(request, requestedFields){
   }
   var response = JSON.parse(UrlFetchApp.fetch(url, options));
   
-//function formatData(response, requestedFields){
+function formatData(response, requestedFields){
   console.log(typeof(response));
   var item = Utilities.parseCsv(response, ';');
   var row = requestedFields.asArray().map(function(field){
